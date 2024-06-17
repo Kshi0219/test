@@ -19,8 +19,8 @@ def main():
                                                     stub_path=keypoint_stub_path)'''
 
     # 트래커 클래스 시작
-    tracker=Tracker('model/test-best-v5m-1(187data).pt')
-    track_stub_path='track_stub/test-stub-v5-1-3.pkl'
+    tracker=Tracker('model/test-best-v5m-2.pt')
+    track_stub_path='track-stub/test-stub-v5-2-1.pkl'
     # 트래킹 결과 생성
     tracks=tracker.tracks_generator(frames,
                                     read_stub=True,
@@ -45,7 +45,7 @@ def main():
 
     # annotate한 영상 저장
     save_video(output_frames,
-               'output-video/test-output-v5-1-3(.5conf-150ltb).avi')
+               'output-video/test-output-v5-2-1.avi')
 
 if __name__=='__main__':
     main()

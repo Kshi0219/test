@@ -31,7 +31,7 @@ class Tracker:
         return ball_positions_bf
     
     def detect_frames(self,frames):
-        batch_size=20
+        batch_size=30
         detections=[]
         for i in range(0,len(frames),batch_size):
             track_result=self.model.predict(frames[i:i+batch_size],conf=0.5)
