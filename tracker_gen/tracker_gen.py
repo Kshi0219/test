@@ -34,7 +34,7 @@ class Tracker:
         batch_size=30
         detections=[]
         for i in range(0,len(frames),batch_size):
-            track_result=self.model.predict(frames[i:i+batch_size],conf=0.5)
+            track_result=self.model.predict(frames[i:i+batch_size],conf=0.55)
             detections+=track_result
         return detections
     
@@ -70,7 +70,7 @@ class Tracker:
                 class_id=frame_detection[3]
                 if class_id==class_inv['ball']:
                     tracks['ball'][frame_num][1]={'bbox':bounding_box}
-
+        # self.test=frame_detection[2] - confidence
         if stub_path is not None:
             with open(stub_path,'wb') as s:
                 pickle.dump(tracks,s)
